@@ -62,12 +62,6 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <nav class="nav d-flex justify-content-between">
-            <button type="button" class="btn btn-primary my-2">Panel Administrateur</button>
-            @include('partial.search')
-        </nav>
-    </div>
         <main class="py-4">
         @yield('content')
         </main>

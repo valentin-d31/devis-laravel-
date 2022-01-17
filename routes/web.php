@@ -17,5 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Home Route*/
+/*Home Routes*/
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+
+/*Admin Routes*/
+Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');

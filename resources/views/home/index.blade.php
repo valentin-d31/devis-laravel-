@@ -39,37 +39,37 @@
             </tr>
             </thead>
             <tbody>
+                @foreach($services as $service)
+                    <tr>
+                        <td>{{$service->reference}}</td>
+                        <td>{{$service->name}}</td>
+                        <td>{{$service->tarifUnitaire_type}}</td>
+                        <td>{{$service->tarifUnitaire_pht}}</td>
+                        <td>{{$service->prestationDevisee_qté}}</td>
+                        <td>{{$service->prestationDevisee_mht}}</td>
+                        <td>{{$service->prestationCompl_qté}}</td>
+                        <td>{{$service->prestationCompl_mht}}</td>
+                        <td>{{$service->total_ht}}</td>
+                        <td>
+                            <form action="#" method="post">
+                                @csrf
+                                {{-- Voir  --}}
+                                <a href="#" class="btn btn-success"><i
+                                        class="fas fa-eye"></i></a>
 
-            <tr>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>
-                    <form action="#" method="post">
-                        @csrf
-                        {{-- Voir  --}}
-                        <a href="#" class="btn btn-success"><i
-                                class="fas fa-eye"></i></a>
+                                {{-- Editer  --}}
+                                <a href="#" class="btn btn-info"><i
+                                        class="far fa-edit"></i></a>
 
-                        {{-- Editer  --}}
-                        <a href="#" class="btn btn-info"><i
-                                class="far fa-edit"></i></a>
+                                {{-- Supprimer  --}}
+                                <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                            </form>
 
-                        {{-- Supprimer  --}}
-                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                    </form>
+                        </td>
+                    </tr>
 
-                </td>
-            </tr>
-
-            <p class="text-center"></p>
-
+                    <p class="text-center"></p>
+                @endforeach
             </tbody>
         </table>
         <hr>

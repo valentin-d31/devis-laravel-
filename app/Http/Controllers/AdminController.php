@@ -24,12 +24,12 @@ class AdminController extends Controller
             'reference' => 'required',
             'name' => 'required',
             'tarifUnitaire_type' => 'required',
-            'tarifUnitaire_pht' => 'required',
-            'prestationDevisee_qté' => 'required',
-            'prestationDevisee_mht' => 'required',
-            'prestationCompl_qté' => 'required',
-            'prestationCompl_mht' => 'required',
-            'total_ht' => 'required',
+            'tarifUnitaire_pht' => 'required|integer',
+            'prestationDevisee_qté' => 'required|integer',
+            'prestationDevisee_mht' => 'required|integer',
+            'prestationCompl_qté' => 'required|integer',
+            'prestationCompl_mht' => 'required|integer',
+            'total_ht' => 'required|integer',
         ]);
 
        $produit= Produit::create([
@@ -47,6 +47,6 @@ class AdminController extends Controller
 
         return redirect()
         ->route('home.index', compact('produit'))
-            ->with('success', 'Le Produit à bien été ajouté');
+            ->with('success', ' Le produit à bien été ajouté avec success au devis (idDevis)');
     }
 }

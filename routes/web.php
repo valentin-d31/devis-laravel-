@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Home Routes*/
+/*Home Route*/
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
 /*Admin Routes*/
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
+
+/*Add Service Route*/

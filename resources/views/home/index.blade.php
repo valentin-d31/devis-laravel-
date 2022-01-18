@@ -39,17 +39,17 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($services as $service)
+                @foreach($produits as $produit)
                     <tr>
-                        <td>{{$service->reference}}</td>
-                        <td>{{$service->name}}</td>
-                        <td>{{$service->tarifUnitaire_type}}</td>
-                        <td>{{$service->tarifUnitaire_pht}}</td>
-                        <td>{{$service->prestationDevisee_qté}}</td>
-                        <td>{{$service->prestationDevisee_mht}}</td>
-                        <td>{{$service->prestationCompl_qté}}</td>
-                        <td>{{$service->prestationCompl_mht}}</td>
-                        <td>{{$service->total_ht}}</td>
+                        <td>{{$produit->reference}}</td>
+                        <td>{{$produit->name}}</td>
+                        <td>{{$produit->tarifUnitaire_type}}</td>
+                        <td>{{$produit->tarifUnitaire_pht}}</td>
+                        <td>{{$produit->prestationDevisee_qté}}</td>
+                        <td>{{$produit->prestationDevisee_mht}}</td>
+                        <td>{{$produit->prestationCompl_qté}}</td>
+                        <td>{{$produit->prestationCompl_mht}}</td>
+                        <td>{{$produit->total_ht}}</td>
                         <td>
                             <form action="#" method="post">
                                 @csrf
@@ -62,7 +62,7 @@
                                         class="far fa-edit"></i></a>
 
                                 {{-- Supprimer  --}}
-                                <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                <button type="submit" class="btn btn-danger"><i class="fa fa-download"></i></button>
                             </form>
 
                         </td>

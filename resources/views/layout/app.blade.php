@@ -50,7 +50,7 @@
                 <!-- Middle Side Of Navbar -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="blog-header-logo text-dark" href="#">
+                        <a class="blog-header-logo text-dark" href="{{route('home.index')}}">
                             <h2>💻 Devis</h2>
                         </a>
                     </li>

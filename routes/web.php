@@ -24,5 +24,5 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 /*Admin Routes*/
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
-
+Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
 /*Add Service Route*/

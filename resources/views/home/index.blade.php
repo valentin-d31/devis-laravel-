@@ -58,7 +58,7 @@
                                         class="fas fa-eye"></i></a>
 
                                 {{-- Editer  --}}
-                                <a href="#" class="btn btn-info"><i
+                                <a href="{{ route('admin.create') }}" class="btn btn-info"><i
                                         class="far fa-edit"></i></a>
 
                                 {{-- Supprimer  --}}

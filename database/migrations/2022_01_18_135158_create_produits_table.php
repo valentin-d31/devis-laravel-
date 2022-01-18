@@ -19,9 +19,9 @@ class CreateProduitsTable extends Migration
             $table->string('name');
             $table->string('tarifUnitaire_type');
             $table->float('tarifUnitaire_pht');
-            $table->float('prestationDevisee_qté');
+            $table->integer('prestationDevisee_qté');
             $table->float('prestationDevisee_mht');
-            $table->float('prestationCompl_qté');
+            $table->integer('prestationCompl_qté');
             $table->float('prestationCompl_mht');
             $table->float('total_ht');
             $table->timestamps();

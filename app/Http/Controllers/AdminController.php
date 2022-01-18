@@ -46,6 +46,7 @@ class AdminController extends Controller
         ]);
 
         return redirect()
-        ->route('home.index', compact('produit'));
+        ->route('home.index', compact('produit'))
+            ->with('success', 'Le Produit à bien été ajouté');
     }
 }

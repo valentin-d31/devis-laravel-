@@ -45,6 +45,7 @@ class AdminController extends Controller
 
         ]);
 
-        return view('admin.create', compact('produit'));
+        return redirect()
+        ->route('home.index', compact('produit'));
     }
 }

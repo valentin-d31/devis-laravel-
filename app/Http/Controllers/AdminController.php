@@ -24,12 +24,12 @@ class AdminController extends Controller
             'reference' => 'required',
             'name' => 'required',
             'tarifUnitaire_type' => 'required',
-            'tarifUnitaire_pht' => 'required|integer',
+            'tarifUnitaire_pht' => 'required',
             'prestationDevisee_qté' => 'required|integer',
-            'prestationDevisee_mht' => 'required|integer',
+            'prestationDevisee_mht' => 'required',
             'prestationCompl_qté' => 'required|integer',
-            'prestationCompl_mht' => 'required|integer',
-            'total_ht' => 'required|integer',
+            'prestationCompl_mht' => 'required',
+            'total_ht' => 'required',
         ]);
 
        $produit= Produit::create([

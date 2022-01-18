@@ -27,29 +27,29 @@
             </form>
             <thead>
             <tr>
-                <th scope="col">Cote</th>
-                <th scope="col">devis</th>
-                <th scope="col">blala</th>
-                <th scope="col">Pays</th>
-                <th scope="col">Durée</th>
-                <th scope="col">Création</th>
-                <th scope="col">Image</th>
-                <th scope="col">Action</th>
+                <th scope="col">Objet Devis</th>
+                <th scope="col">Entité de Facturation</th>
+                <th scope="col">Prestataire</th>
+                <th scope="col">Référence Allianz</th>
+                <th scope="col">Référence Prestataire</th>
+                <th scope="col">Date Ouverture</th>
+                <th scope="col">Date de Fermeture</th>
+                <th scope="col">Prix total (h.t.)</th>
+                <th scope="col">Validation</th>
             </tr>
             </thead>
             <tbody>
 
             <tr>
                 <td>#</td>
-                <td><a href="#">#</a></td>
-                <td>
-
-                </td>
-                </a>
-                <td></td>
-                <td>min</td>
-                <td></td>
-                <td></td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
+                <td>#</td>
                 <td>
                     <form action="#" method="post">
                         @csrf

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProduitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +25,9 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 
 
 /*[Admin] Produits Routes*/
-Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
-Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
-Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
-Route::get('/admin/{produit}/edit', [AdminController::class, 'edit'])->name('admin.edit');
-Route::patch('/admin/{produit}', [AdminController::class, 'update'])->name('admin.update');
-Route::delete('admin/{produit}', [AdminController::class, 'destroy'])->name('admin.destroy');
+Route::get('/produits', [\App\Http\Controllers\ProduitController::class, 'index'])->name('produits.index');
+Route::get('/produits/create', [ProduitController::class, 'create'])->name('produits.create');
+Route::post('/produits', [ProduitController::class, 'store'])->name('produits.store');
+Route::get('/produits/{produit}/edit', [ProduitController::class, 'edit'])->name('produits.edit');
+Route::patch('/produits/{produit}', [ProduitController::class, 'update'])->name('produits.update');
+Route::delete('produits/{produit}', [ProduitController::class, 'destroy'])->name('produits.destroy');

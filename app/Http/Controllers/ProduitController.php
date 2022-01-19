@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class ProduitController extends Controller
 {
     public function index()
     {
         $produits = Produit::all();
-        return view('admin.index', compact('produits'));
+        return view('produits.index', compact('produits'));
     }
 
     public function create()
     {
-        return view('admin.create');
+        return view('produits.create');
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class AdminController extends Controller
         ]);
 
         return redirect()
-        ->route('admin.index', compact('produit'))
+        ->route('produits.index', compact('produit'))
             ->with('success', ' Le produit à bien été ajouté avec success au devis (idDevis)');
     }
 
@@ -59,7 +59,7 @@ class AdminController extends Controller
             return abort(404);
         }
 
-        return view('admin.edit', compact('produit'));
+        return view('produits.edit', compact('produit'));
     }
 
     public function update(Request $request, $produit)
@@ -84,12 +84,12 @@ class AdminController extends Controller
 
        if ($produit->update($data)) {
            return redirect()
-               ->route('admin.index')
+               ->route('produits.index')
                ->with('success', 'Le produit a bien été modifié');
        }
 
        return redirect()
-           ->route('admin.index', ['id' => $produit])
+           ->route('produits.index', ['id' => $produit])
            ->with('error', "une erreur est survenue. Le produit n'\a pas été modifié");
 
     }
@@ -104,7 +104,7 @@ class AdminController extends Controller
 
         if ($produit->delete()) {
             return redirect()
-                ->route('admin.index')
+                ->route('produits.index')
                 ->with('success', 'Le produit a bien été supprimé');
         }
 

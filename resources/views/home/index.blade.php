@@ -10,7 +10,7 @@
             <nav class="nav d-flex justify-content-between">
                 <div class="container">
                     <nav class="nav d-flex justify-content-between">
-                        <a href="{{route('admin.index')}}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
+                        <a href="{{route('produits.index')}}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
                     </nav>
                 </div>
             </nav>
@@ -58,7 +58,7 @@
                                         class="fas fa-eye"></i></a>
 
                                 {{-- Editer  --}}
-                                <a href="{{ route('admin.create') }}" class="btn btn-info"><i
+                                <a href="{{ route('produits.create') }}" class="btn btn-info"><i
                                         class="far fa-edit"></i></a>
 
                                 {{-- Supprimer  --}}

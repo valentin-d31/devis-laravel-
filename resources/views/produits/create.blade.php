@@ -7,7 +7,7 @@
 
     <div class="container">
             <ul>
-                <form action="{{route('admin.store')}}" method="POST" >
+                <form action="{{route('produits.store')}}" method="POST" >
                     @csrf
 
                     {{-- Reference du Service --}}

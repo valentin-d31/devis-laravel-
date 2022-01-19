@@ -69,7 +69,7 @@
         <h1 class="my-5">Afficher les produits</h1>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="{{route('admin.create')}}" class="btn btn-primary me-md-2" type="button">Créer un produit</a>
+            <a href="{{route('produits.create')}}" class="btn btn-primary me-md-2" type="button">Créer un produit</a>
         </div>
         <hr>
         <table class="table text-center">
@@ -99,12 +99,12 @@
                     <td>{{$produit->prestationCompl_mht}}</td>
                     <td>{{$produit->total_ht}}</td>
                     <td>
-                        <form action=" {{ route('admin.destroy', $produit) }}" method="POST">
+                        <form action=" {{ route('produits.destroy', $produit) }}" method="POST">
                             @csrf
                             @method('DELETE')
 
                             {{-- Editer  --}}
-                            <a href="{{ route('admin.edit', $produit) }}" class="btn btn-info"><i
+                            <a href="{{ route('produits.edit', $produit) }}" class="btn btn-info"><i
                                     class="far fa-edit"></i></a>
                             {{-- Supprimer  --}}
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

@@ -55,6 +55,53 @@ class AdminController extends Controller
     {
         $produit = Produit::where('id', $produit)->first();
 
+        if (!$produit) {
+            return abort(404);
+        }
+
         return view('admin.edit', compact('produit'));
+    }
+
+    public function update(Request $request, $produit)
+    {
+        $produit = Produit::where('id', $produit)->first();
+
+        if (!$produit) {
+            return abort(404);
+        }
+
+        $data = request()->validate([
+            'reference' => 'required',
+            'name' => 'required',
+            'tarifUnitaire_type' => 'required',
+            'tarifUnitaire_pht' => 'required',
+            'prestationDevisee_qté' => 'required|integer',
+            'prestationDevisee_mht' => 'required',
+            'prestationCompl_qté' => 'nullable',
+            'prestationCompl_mht' => 'nullable',
+            'total_ht' => 'required',
+        ]);
+
+       if ($produit->update($data)) {
+           return redirect()->route('admin.index')->with('success', 'Le produit a bien été modifié');
+       }
+
+       return redirect()
+           ->route('admin.index', ['id' => $produit])
+           ->with('error', "une erreur est survenue. Le produit n'\a pas été modifié");
+
+    }
+
+    public function destroy($produit)
+    {
+        $produit = Produit::where('id', $produit)->first();
+
+        if (!produit) {
+            return abort(500);
+        }
+
+        if ($produit->delete()) {
+            return redirect('admin.index');
+        }
     }
 }

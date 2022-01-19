@@ -29,3 +29,5 @@ Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->n
 Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
 Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
 Route::get('/admin/{produit}/edit', [AdminController::class, 'edit'])->name('admin.edit');
+Route::patch('/admin/{produit}', [AdminController::class, 'update'])->name('admin.update');
+Route::delete('admin/{produit}', [AdminController::class, 'destroy'])->name('admin.destroy');

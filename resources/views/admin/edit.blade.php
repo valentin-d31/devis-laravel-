@@ -7,8 +7,9 @@
 
     <div class="container">
         <ul>
-            <form action="{{route('admin.store')}}" method="POST" >
+            <form action="{{ route('admin.update', $produit->id) }}" method="POST" >
                 @csrf
+                @method('patch')
 
                 {{-- Reference du Service --}}
                 <div class="form-group">
@@ -114,7 +115,7 @@
                             {{ $errors->first('total_ht') }}
                         </div>
                         @enderror
-                        <button type="submit" class="btn btn-primary">Ajouter le produit au devis (idDevis)</button>
+                        <button type="submit" class="btn btn-primary">Modifier le produit</button>
             </form>
         </ul>
     </div>

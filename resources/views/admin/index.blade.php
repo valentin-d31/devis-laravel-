@@ -75,36 +75,53 @@
         <table class="table text-center">
             <thead>
             <tr>
-                <th scope="col">E-mail</th>
-                <th scope="col">Age</th>
-                <th scope="col">Tel. M</th>
-                <th scope="col">S</th>
-                <th scope="col">montant max</th>
-                <th scope="col">Action</th>
+                <th scope="col">Objet Devis</th>
+                <th scope="col">Entité de Facturation</th>
+                <th scope="col">Prestataire</th>
+                <th scope="col">Référence Allianz</th>
+                <th scope="col">Référence Prestataire</th>
+                <th scope="col">Date Ouverture</th>
+                <th scope="col">Date de Fermeture</th>
+                <th scope="col">Prix total (h.t.)</th>
+                <th scope="col">Validation</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><a href="#"></a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <form action="#" method="post">
-                        @csrf
+            @foreach($produits as $produit)
+                <tr>
+                    <td>{{$produit->reference}}</td>
+                    <td>{{$produit->name}}</td>
+                    <td>{{$produit->tarifUnitaire_type}}</td>
+                    <td>{{$produit->tarifUnitaire_pht}}</td>
+                    <td>{{$produit->prestationDevisee_qté}}</td>
+                    <td>{{$produit->prestationDevisee_mht}}</td>
+                    <td>{{$produit->prestationCompl_qté}}</td>
+                    <td>{{$produit->prestationCompl_mht}}</td>
+                    <td>{{$produit->total_ht}}</td>
+                    <td>
+                        <form action="#" method="post">
+                            @csrf
 
-                        {{-- Editer le produit--}}
-                        <a href="" class="btn btn-info"><i
-                                class="far fa-edit"></i></a>
+                            {{-- Editer  --}}
+                            <a href="{{ route('admin.edit', $produit) }}" class="btn btn-info"><i
+                                    class="far fa-edit"></i></a>
 
-                        {{-- Supprimer le produit--}}
-                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                    </form>
+                            {{-- Supprimer  --}}
+                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </form>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
+
+                <p class="text-center"></p>
+            @endforeach
             </tbody>
         </table>
+        <hr>
+        @if ( session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session()->get('success') }}
+            </div>
+        @endif
     </div>
 @endsection

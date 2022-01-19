@@ -9,7 +9,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $produits = Produit::all();
+        return view('admin.index', compact('produits'));
     }
 
     public function create()
@@ -53,5 +54,7 @@ class AdminController extends Controller
     public function edit($produit)
     {
         $produit = Produit::where('id', $produit)->first();
+
+        return view('admin.edit', compact('produit'));
     }
 }

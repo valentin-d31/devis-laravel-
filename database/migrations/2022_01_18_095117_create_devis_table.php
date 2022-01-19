@@ -26,6 +26,7 @@ class CreateDevisTable extends Migration
             $table->string('titre');
             $table->dateTime('date_ouverture');
             $table->text('ref_allianz');
+            $table->text('ref-commande');
             $table->string('fait_partie_projet')->nullable();
             $table->string('exemple_sur')->nullable();
             $table->dateTime('date_1er_PDF');

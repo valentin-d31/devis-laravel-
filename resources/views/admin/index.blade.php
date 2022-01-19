@@ -99,13 +99,13 @@
                     <td>{{$produit->prestationCompl_mht}}</td>
                     <td>{{$produit->total_ht}}</td>
                     <td>
-                        <form action="#" method="post">
+                        <form action=" {{ route('admin.destroy', $produit) }}" method="POST">
                             @csrf
+                            @method('DELETE')
 
                             {{-- Editer  --}}
                             <a href="{{ route('admin.edit', $produit) }}" class="btn btn-info"><i
                                     class="far fa-edit"></i></a>
-
                             {{-- Supprimer  --}}
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </form>

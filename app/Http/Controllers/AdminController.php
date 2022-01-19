@@ -47,7 +47,7 @@ class AdminController extends Controller
         ]);
 
         return redirect()
-        ->route('home.index', compact('produit'))
+        ->route('admin.index', compact('produit'))
             ->with('success', ' Le produit à bien été ajouté avec success au devis (idDevis)');
     }
 
@@ -83,7 +83,9 @@ class AdminController extends Controller
         ]);
 
        if ($produit->update($data)) {
-           return redirect()->route('admin.index')->with('success', 'Le produit a bien été modifié');
+           return redirect()
+               ->route('admin.index')
+               ->with('success', 'Le produit a bien été modifié');
        }
 
        return redirect()
@@ -96,12 +98,18 @@ class AdminController extends Controller
     {
         $produit = Produit::where('id', $produit)->first();
 
-        if (!produit) {
+        if (!$produit) {
             return abort(500);
         }
 
         if ($produit->delete()) {
-            return redirect('admin.index');
+            return redirect()
+                ->route('admin.index')
+                ->with('success', 'Le produit a bien été supprimé');
         }
+
+        return redirect()
+            ->route('admn.index', ['id' => $produit])
+            ->with('error', "Une erreur est survenur. Le produit n'\a pas été supprimé");
     }
 }

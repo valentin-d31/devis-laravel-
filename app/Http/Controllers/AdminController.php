@@ -27,8 +27,8 @@ class AdminController extends Controller
             'tarifUnitaire_pht' => 'required',
             'prestationDevisee_qté' => 'required|integer',
             'prestationDevisee_mht' => 'required',
-            'prestationCompl_qté' => 'required|integer',
-            'prestationCompl_mht' => 'required',
+            'prestationCompl_qté' => 'nullable',
+            'prestationCompl_mht' => 'nullable',
             'total_ht' => 'required',
         ]);
 
@@ -48,5 +48,10 @@ class AdminController extends Controller
         return redirect()
         ->route('home.index', compact('produit'))
             ->with('success', ' Le produit à bien été ajouté avec success au devis (idDevis)');
+    }
+
+    public function edit($produit)
+    {
+        $produit = Produit::where('id', $produit)->first();
     }
 }

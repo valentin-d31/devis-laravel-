@@ -90,27 +90,17 @@
                         {{-- prestationCompl quantité --}}
                         <div class="form-group">
                             <label for="prestationCompl_qté">Quantité de prestation complémentaire</label>
-                            <input id="prestationCompl_qté" class="form-control @error('prestationCompl_qté') is-invalid @enderror"
+                            <input id="prestationCompl_qté" class="form-control"
                                    name="prestationCompl_qté"
                                    placeholder="rentrer un prix hors_taxe pour la prestation">
-                            @error('prestationDevisee_qté')
-                            <div class="invalid-feedback">
-                                {{ $errors->first('prestationDevisee_qté') }}
-                            </div>
-                            @enderror
                         </div>
 
                         {{-- prestationCompl_mht --}}
                         <div class="form-group">
                             <label for="prestationCompl_mht">Montant hors-taxe de la prestation complementaire</label>
-                            <input id="prestationCompl_mht" class="form-control @error('prestationCompl_mht') is-invalid @enderror"
+                            <input id="prestationCompl_mht" class="form-control"
                                    name="prestationCompl_mht"
                                    placeholder="rentrez un montant hors-taxe de la prestation complementaire">
-                            @error('prestationCompl_mht')
-                            <div class="invalid-feedback">
-                                {{ $errors->first('prestationCompl_mht') }}
-                            </div>
-                            @enderror
                         </div>
 
                         {{-- total_ht --}}

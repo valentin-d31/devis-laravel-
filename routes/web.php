@@ -21,8 +21,11 @@ Route::get('/', function () {
 /*Home Route*/
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
-/*Admin Routes*/
+/*[Admin] Devis Route*/
+
+
+/*[Admin] Produits Routes*/
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/create', [AdminController::class, 'create'])->name('admin.create');
 Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
-/*Add Service Route*/
+Route::get('/admin/{produit}/edit', [AdminController::class, 'edit'])->name('admin.edit');

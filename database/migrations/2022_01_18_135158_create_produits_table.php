@@ -21,8 +21,8 @@ class CreateProduitsTable extends Migration
             $table->string('tarifUnitaire_pht');
             $table->integer('prestationDevisee_qté');
             $table->string('prestationDevisee_mht');
-            $table->integer('prestationCompl_qté');
-            $table->string('prestationCompl_mht');
+            $table->integer('prestationCompl_qté')->nullable();
+            $table->string('prestationCompl_mht')->nullable();
             $table->string('total_ht');
             $table->timestamps();
         });

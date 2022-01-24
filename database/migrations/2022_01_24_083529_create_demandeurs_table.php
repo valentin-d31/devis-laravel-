@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommandesTable extends Migration
+class CreateDemandeursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,14 @@ class CreateCommandesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commandes', function (Blueprint $table) {
+        Schema::create('demandeurs', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
+            $table->string('raison_sociale');
             $table->string('adresse');
-            $table->string('complement_adresse')->nullable();
             $table->string('cp_ville');
             $table->string('TVA_intracom')->nullable();
-            $table->string('siret');
-            $table->string('responsable_commercial')->nullable();
-            $table->string('responsable_technique')->nullable();
-            $table->string('responsable_financier')->nullable();
+            $table->integer('RCS');
+            $table->string('contact_administratif')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +32,6 @@ class CreateCommandesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commandes');
+        Schema::dropIfExists('demandeurs');
     }
 }

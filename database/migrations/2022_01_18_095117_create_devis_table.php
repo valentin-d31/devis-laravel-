@@ -14,15 +14,7 @@ class CreateDevisTable extends Migration
     public function up()
     {
         Schema::create('devis', function (Blueprint $table) {
-            //DEMANDEUR
             $table->id();
-            $table->string('raison_sociale');
-            $table->string('adresse');
-            $table->string('cp_ville');
-            $table->string('TVA_intracom')->nullable();
-            $table->integer('RCS');
-            $table->string('contact_administratif')->nullable();
-            //DOSSIER
             $table->string('titre');
             $table->dateTime('date_ouverture');
             $table->text('ref_allianz');

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,8 @@ Route::get('/', function () {
 
 /*Home Route*/
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+/*Barre de Recherche [AJAX]*/
+Route::post('/search', [\App\Http\Controllers\HomeController::class, 'search'])->name('home.search');
 
 /*[Admin] Devis Route*/
 
@@ -31,3 +34,4 @@ Route::post('/produits', [ProduitController::class, 'store'])->name('produits.st
 Route::get('/produits/{produit}/edit', [ProduitController::class, 'edit'])->name('produits.edit');
 Route::patch('/produits/{produit}', [ProduitController::class, 'update'])->name('produits.update');
 Route::delete('produits/{produit}', [ProduitController::class, 'destroy'])->name('produits.destroy');
+

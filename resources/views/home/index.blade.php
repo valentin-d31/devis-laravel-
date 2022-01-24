@@ -12,6 +12,7 @@
                     <nav class="nav d-flex justify-content-between">
                         <a href="{{route('produits.index')}}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
                     </nav>
+                    <meta name="csrf-token" content="{{ csrf_token() }}">
                 </div>
             </nav>
         </div>
@@ -19,9 +20,9 @@
         {{-- Afficher les Devis --}}
         <h1 class="my-2">Afficher les devis</h1>
         <table class="table text-center">
-            <form action="#" class="d-flex mr-3">
+            <form action="{{route('home.search')}}"  method="POST" id="search-form" class="d-flex mr-3">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" value="{{ request()->q ?? '' }}">
+                    <input type="text" name="q" id="q" class="form-control" value="{{ request()->q ?? '' }}">
                     <button type="submit" class="btn btn-info"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </form>
@@ -52,7 +53,6 @@
                         <td>{{$produit->total_ht}}</td>
                         <td>
                             <form action="#" method="post">
-                                @csrf
                                 {{-- Voir  --}}
                                 <a href="#" class="btn btn-success"><i
                                         class="fas fa-eye"></i></a>
@@ -70,6 +70,9 @@
 
                     <p class="text-center"></p>
                 @endforeach
+                {{-- Script Search JS --}}
+                <script src="{{ asset('js/app.js')  }}"></script>
+
             </tbody>
         </table>
         <hr>

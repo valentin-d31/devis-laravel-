@@ -12,4 +12,9 @@ class HomeController extends Controller
         $produits = produit::all();
         return view('home.index', compact('produits'));
     }
+
+    public function search(Request $request)
+    {
+        $request->input('q');
+    }
 }

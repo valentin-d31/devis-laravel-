@@ -20,7 +20,7 @@ class CreateCommandesTable extends Migration
             $table->string('complement_adresse')->nullable();
             $table->string('cp_ville');
             $table->string('TVA_intracom')->nullable();
-            $table->integer('siret');
+            $table->integer('siret')->nullable();
             $table->string('responsable_commercial')->nullable();
             $table->string('responsable_technique')->nullable();
             $table->string('responsable_financier')->nullable();

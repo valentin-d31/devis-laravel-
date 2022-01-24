@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,8 +14,15 @@ class HomeController extends Controller
         return view('home.index', compact('produits'));
     }
 
-    public function search(Request $request)
+    public function search(Request $request): JsonResponse
     {
-        $request->input('q');
+        $q = $request->input('q');
+
+        //le titre ou les caractère rentré valent la requete
+        $produits = Produit::where('name', 'like', '%' .$q . '%')->get();
+
+        return response()->json([
+            'produits' => $produits
+        ]); 
     }
 }

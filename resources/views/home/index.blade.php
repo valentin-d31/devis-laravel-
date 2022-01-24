@@ -5,6 +5,7 @@
 
 @section('content')
     <div class="container">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <div class="nav-scroller py-1 mb-2">
             <nav class="nav d-flex justify-content-between">
@@ -12,7 +13,6 @@
                     <nav class="nav d-flex justify-content-between">
                         <a href="{{route('produits.index')}}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
                     </nav>
-                    <meta name="csrf-token" content="{{ csrf_token() }}">
                 </div>
             </nav>
         </div>

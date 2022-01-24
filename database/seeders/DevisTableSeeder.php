@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Devis;
 use Illuminate\Database\Seeder;
 
-class ServiceTableSeeder extends Seeder
+class DevisTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,6 @@ class ServiceTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Devis::factory()->count(1)->create();
     }
 }

@@ -23,6 +23,6 @@ class HomeController extends Controller
 
         return response()->json([
             'produits' => $produits
-        ]); 
+        ]);
     }
 }

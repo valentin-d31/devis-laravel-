@@ -28,6 +28,10 @@ class CreateDevisTable extends Migration
             $table->boolean('impression');
             $table->boolean('PDF_dynamique');
             $table->string('contact');
+
+            $table->foreignId('demandeurs_id')
+                ->references('id')->on('demandeurs')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

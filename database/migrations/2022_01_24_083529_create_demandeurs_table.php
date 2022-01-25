@@ -15,6 +15,7 @@ class CreateDemandeursTable extends Migration
     {
         Schema::create('demandeurs', function (Blueprint $table) {
             $table->id();
+
             $table->string('raison_sociale');
             $table->string('adresse');
             $table->string('cp_ville');

@@ -22,7 +22,7 @@ Route::get('/', function () {
 /*Home Route*/
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 /*Barre de Recherche [AJAX]*/
-Route::post('/search', [\App\Http\Controllers\HomeController::class, 'search'])->name('home.search');
+Route::post('/', [\App\Http\Controllers\HomeController::class, 'search'])->name('home.search');
 
 /*[Admin] Devis Route*/
 

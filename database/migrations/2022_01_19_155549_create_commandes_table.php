@@ -15,6 +15,7 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('produit_id')->constrained()->onDelete('cascade');
             $table->string('nom');
             $table->string('adresse');
             $table->string('complement_adresse')->nullable();

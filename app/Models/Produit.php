@@ -20,4 +20,9 @@ class Produit extends Model
         'prestationCompl_mht',
         'total_ht'
     ];
+
+    public function commande()
+    {
+        return $this->belongsTo(App\Models\Commande::class);
+    }
 }

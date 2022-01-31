@@ -73,6 +73,8 @@
                 @endforeach
             </div>
                 <script>
+                    $( document ).ready(function() {
+
                     const form = document.getElementById('search-form');
 
                     form.addEventListener('submit', function(e) {
@@ -108,7 +110,7 @@
                             console.log(error)
                         })
                     });
-
+                    });
                 </script>
                  </table>
             </tbody>

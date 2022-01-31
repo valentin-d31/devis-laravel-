@@ -28,7 +28,7 @@ Route::post('/', [\App\Http\Controllers\HomeController::class, 'search'])->name(
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
 
 /*[Admin] Devis Route*/
-Route::get('/devis/create', [\App\Http\Controllers\DevisController::class, 'create'])->name('devis_create');
+Route::get('/devis/create', [\App\Http\Controllers\DevisController::class, 'create'])->name('devis.create');
 
 
 /*[Admin] Produits Routes*/

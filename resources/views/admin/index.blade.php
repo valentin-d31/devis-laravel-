@@ -14,7 +14,7 @@
         {{-- Afficher les Devis --}}
         <h1 class="my-2">Afficher les devis</h1>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">créer un devis </button>
+            <a href="{{route('devis.create')}}" class="btn btn-primary me-md-2" type="button">Créer un devis</a>
         </div>
         <hr>
 

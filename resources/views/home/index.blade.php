@@ -20,9 +20,9 @@
         {{-- Afficher les Devis --}}
         <h1 class="my-2">Afficher les devis</h1>
         <table class="table text-center">
-            <form action="{{route('home.search')}}"  method="POST" id="search-form" class="d-flex mr-3">
+            <form action="{{route('home.search')}}"   class="d-flex mr-3">
                 <div class="input-group">
-                    <input type="text" name="q" id="q" class="form-control" value="{{ request()->q ?? '' }}">
+                    <input type="text" name="q" id="search-form" class="form-control" value="{{ request()->q ?? '' }}">
                     <button type="submit" class="btn btn-info"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </form>
@@ -71,7 +71,6 @@
                     <p class="text-center"></p>
                 @endforeach
                 {{-- Script Search JS --}}
-                <script src="{{ asset('js/app.js')  }}"></script>
 
             </tbody>
         </table>
@@ -83,3 +82,6 @@
         @endif
     </div>
 @endsection
+<script>
+    console.log('laBiteDeAlex');
+</script>

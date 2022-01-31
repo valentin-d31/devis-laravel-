@@ -2060,9 +2060,7 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-__webpack_require__(/*! ./search */ "./resources/js/search.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require ('./search');
 
 /***/ }),
 
@@ -2097,6 +2095,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/search.js":
 /*!********************************!*\
   !*** ./resources/js/search.js ***!
@@ -2118,6 +2117,8 @@ form.addEventListener('submit', function (e) {
 
 /***/ }),
 
+=======
+>>>>>>> 9ebbb5eff4945636baff4af9067970147d974ade
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!

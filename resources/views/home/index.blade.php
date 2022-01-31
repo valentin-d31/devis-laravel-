@@ -11,7 +11,7 @@
             <nav class="nav d-flex justify-content-between">
                 <div class="container">
                     <nav class="nav d-flex justify-content-between">
-                        <a href="{{route('produits.index')}}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
+                        <a href="{{ route('admin.index') }}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
                     </nav>
                 </div>
             </nav>
@@ -19,8 +19,11 @@
 
         {{-- Afficher les Devis --}}
         <h1 class="my-2">Afficher les devis</h1>
+        <tbody>
         <table class="table text-center">
             <form action="{{route('home.search')}}"   class="d-flex mr-3">
+
+            <form action="{{ route('home.search') }}" method="POST" id="search-form" class="d-flex mr-3">
                 <div class="input-group">
                     <input type="text" name="q" id="search-form" class="form-control" value="{{ request()->q ?? '' }}">
                     <button type="submit" class="btn btn-info"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -39,7 +42,7 @@
                 <th scope="col">Validation</th>
             </tr>
             </thead>
-            <tbody>
+            <div id="produits">
                 @foreach($produits as $produit)
                     <tr>
                         <td>{{$produit->reference}}</td>
@@ -71,9 +74,49 @@
                     <p class="text-center"></p>
                 @endforeach
                 {{-- Script Search JS --}}
+            </div>
+                <script>
+                    $( document ).ready(function() {
 
+                    const form = document.getElementById('search-form');
+
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        const token = document.querySelector('meta[name="csrf-token"]').content;
+                        const url = this.getAttribute('action');
+                        const  q = document.getElementById('q').value;
+
+                        fetch(url, {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': token
+                            },
+                            method: 'post',
+                            body: JSON.stringify({
+                                q: q
+                            })
+                        }).then(response => {
+                            response.json().then(data => {
+                                const produits = document.getElementById('produits');
+                                produits.innerHTML = '';
+
+                                {{--console.log(data)--}}
+                                {{--object.entries pour transforrmer les datas en [] de proprietes--}}
+                                Object.entries(data)[0][1].forEach(element => {
+                                    produits.innerHTML += `<h1>${element.name}</h1>
+                                    <p>${element.reference}</p>
+                                    `
+                                });
+                            })
+                        }).catch(error => {
+                            console.log(error)
+                        })
+                    });
+                    });
+                </script>
+                 </table>
             </tbody>
-        </table>
         <hr>
         @if ( session()->has('success'))
             <div class="alert alert-success" role="alert">
@@ -85,3 +128,4 @@
 <script>
     console.log('laBiteDeAlex');
 </script>
+

@@ -9,4 +9,13 @@ class Devis extends Model
 {
     use HasFactory;
 
+    public function demandeur()
+    {
+        return $this->hasOne(App\Models\Demandeur::class);
+    }
+
+    public function commande()
+    {
+        return $this->hasOne(App\Models\Commande::class);
+    }
 }

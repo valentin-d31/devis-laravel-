@@ -24,11 +24,14 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('h
 /*Barre de Recherche [AJAX]*/
 Route::post('/', [\App\Http\Controllers\HomeController::class, 'search'])->name('home.search');
 
+/*[Admin] Accueil*/
+Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+
 /*[Admin] Devis Route*/
+Route::get('/devis/create', [\App\Http\Controllers\DevisController::class, 'create'])->name('devis.create');
 
 
 /*[Admin] Produits Routes*/
-Route::get('/produits', [\App\Http\Controllers\ProduitController::class, 'index'])->name('produits.index');
 Route::get('/produits/create', [ProduitController::class, 'create'])->name('produits.create');
 Route::post('/produits', [ProduitController::class, 'store'])->name('produits.store');
 Route::get('/produits/{produit}/edit', [ProduitController::class, 'edit'])->name('produits.edit');

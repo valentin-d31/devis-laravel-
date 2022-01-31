@@ -13,26 +13,26 @@ class CreateDevisTable extends Migration
      */
     public function up()
     {
-            Schema::create('devis', function (Blueprint $table) {
-                $table->id();
-                $table->foreignId('demandeur_id')->constrained();
-                $table->string('titre');
-                $table->dateTime('date_ouverture');
-                $table->text('ref_allianz');
-                $table->text('ref_commande');
-                $table->string('fait_partie_projet')->nullable();
-                $table->string('exemple_sur')->nullable();
-                $table->dateTime('date_1er_PDF');
-                $table->integer('cost_center');
-                $table->integer('cost_element');
-                $table->boolean('repartition_si_2_costs_center');
-                $table->boolean('impression');
-                $table->boolean('PDF_dynamique');
-                $table->string('contact');
-                $table->timestamps();
-            });
-
-        }
+        Schema::create('devis', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('demandeur_id')->constrained()->onDelete('cascade');
+            $table->foreignId('commande_id')->constrained()->onDelete('cascade');
+            $table->string('titre');
+            $table->dateTime('date_ouverture');
+            $table->text('ref_allianz');
+            $table->text('ref_commande');
+            $table->string('fait_partie_projet')->nullable();
+            $table->string('exemple_sur')->nullable();
+            $table->dateTime('date_1er_PDF');
+            $table->integer('cost_center');
+            $table->integer('cost_element');
+            $table->boolean('repartition_si_2_costs_center');
+            $table->boolean('impression');
+            $table->boolean('PDF_dynamique');
+            $table->string('contact');
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

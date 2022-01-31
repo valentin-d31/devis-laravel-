@@ -10,7 +10,8 @@ class Demandeur extends Model
 {
     use HasFactory;
 
-    public function devis() {
-        return $this->hasOne(Devis::class);
+    public function devis()
+    {
+        return $this->belongsTo(App\Models\Devis::class);
     }
 }

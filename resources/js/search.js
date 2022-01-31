@@ -1,9 +1,7 @@
-console.log('coucou')
 const form = document.getElementById('search-form');
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
-    console.log(e);
     const token = document.querySelector('meta[name="csrf-token"]').content;
     /* envoyer la méthod ajax sur l'utl */
     //deja dans le formulaire donc nous pouvons faire un this. au lieu du getElementById

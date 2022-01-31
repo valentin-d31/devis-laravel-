@@ -11,7 +11,7 @@
             <nav class="nav d-flex justify-content-between">
                 <div class="container">
                     <nav class="nav d-flex justify-content-between">
-                        <a href="{{route('produits.index')}}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
+                        <a href="{{ route('produits.index') }}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
                     </nav>
                 </div>
             </nav>
@@ -19,8 +19,9 @@
 
         {{-- Afficher les Devis --}}
         <h1 class="my-2">Afficher les devis</h1>
+        <tbody>
         <table class="table text-center">
-            <form action="{{route('home.search')}}"  method="POST" id="search-form" class="d-flex mr-3">
+            <form action="{{ route('home.search') }}" method="POST" id="search-form" class="d-flex mr-3">
                 <div class="input-group">
                     <input type="text" name="q" id="q" class="form-control" value="{{ request()->q ?? '' }}">
                     <button type="submit" class="btn btn-info"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -39,7 +40,6 @@
                 <th scope="col">Validation</th>
             </tr>
             </thead>
-            <tbody>
                 @foreach($produits as $produit)
                     <tr>
                         <td>{{$produit->reference}}</td>
@@ -70,8 +70,36 @@
 
                     <p class="text-center"></p>
                 @endforeach
+                <script>
+                    const form = document.getElementById('search-form');
+
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        const token = document.querySelector('meta[name="csrf-token"]').content;
+                        const url = this.getAttribute('action');
+                        const q = document.getElementById('q').value;
+
+                        fetch(url, {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': token
+                            },
+                            method: 'Post',
+                            body: JSON.stringify({
+                                q: q
+                            })
+
+                        }).then(response => {
+                            console.log(response)
+                        }).catch(error => {
+                            console.log(error)
+                        })
+                    });
+
+                </script>
+                 </table>
             </tbody>
-        </table>
         <hr>
         @if ( session()->has('success'))
             <div class="alert alert-success" role="alert">
@@ -80,6 +108,4 @@
         @endif
     </div>
 @endsection
-<script>
-    console.log('coucou');
-</script>
+

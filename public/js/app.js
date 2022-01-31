@@ -2060,9 +2060,7 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-__webpack_require__(/*! ./search */ "./resources/js/search.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require ('./search');
 
 /***/ }),
 
@@ -2094,28 +2092,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/search.js":
-/*!********************************!*\
-  !*** ./resources/js/search.js ***!
-  \********************************/
-/***/ (() => {
-
-var form = document.getElementById('search-form');
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  var token = document.querySelector('meta[name="csrf-token"]').content;
-  console.log(token);
-  /* envoyer la méthod ajax sur l'utl */
-  //deja dans le formulaire donc nous pouvons faire un this. au lieu du getElementById
-  //action correspond à la route
-
-  var url = this.getAttribute('action');
-  var q = document.getElementById('q').value;
-  console.log(q);
-});
 
 /***/ }),
 

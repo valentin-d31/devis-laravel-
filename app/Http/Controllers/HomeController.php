@@ -14,10 +14,9 @@ class HomeController extends Controller
         return view('home.index', compact('produits'));
     }
     //: JsonResponse
-    public function search(Request $request)
+    public function search(Request $request): JsonResponse
     {
         $q = $request->input('q');
-        dd(q);
         //le titre ou les caractère rentré valent la requete
         $produits = Produit::where('name', 'like', '%' .$q . '%')->get();
                     //->orWhere('description', 'like', '%' .$q . '%')

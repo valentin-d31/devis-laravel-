@@ -14,16 +14,16 @@ class HomeController extends Controller
         return view('home.index', compact('produits'));
     }
     //: JsonResponse
+
     public function search(Request $request): JsonResponse
     {
         $q = $request->input('q');
-        //le titre ou les caractère rentré valent la requete
-        $produits = Produit::where('name', 'like', '%' .$q . '%')->get();
-                    //->orWhere('description', 'like', '%' .$q . '%')
-                    //->paginate(10);
+
+        $produits = produit::where('name', 'like', '%' .$q . '%')->get();
 
         return response()->json([
-            'produits' => $produits
+            'produits' => $produits,
         ]);
     }
+
 }

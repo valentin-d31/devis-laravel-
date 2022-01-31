@@ -11,7 +11,7 @@
             <nav class="nav d-flex justify-content-between">
                 <div class="container">
                     <nav class="nav d-flex justify-content-between">
-                        <a href="{{ route('produits.index') }}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
+                        <a href="{{ route('admin.index') }}" type="button" class="btn btn-primary my-2">Panel Administrateur</a>
                     </nav>
                 </div>
             </nav>

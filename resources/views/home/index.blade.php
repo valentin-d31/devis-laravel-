@@ -70,9 +70,6 @@
 
                     <p class="text-center"></p>
                 @endforeach
-                {{-- Script Search JS --}}
-                <script src="{{ asset('js/app.js')  }}"></script>
-
             </tbody>
         </table>
         <hr>
@@ -83,3 +80,6 @@
         @endif
     </div>
 @endsection
+<script>
+    console.log('coucou');
+</script>

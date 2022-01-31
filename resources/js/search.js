@@ -1,3 +1,4 @@
+console.log('coucou')
 const form = document.getElementById('search-form');
 
 form.addEventListener('submit', function(e) {

@@ -15,6 +15,7 @@ class CreateDevisTable extends Migration
     {
         Schema::create('devis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('demandeur_id')->constrained();
             $table->string('titre');
             $table->dateTime('date_ouverture');
             $table->text('ref_allianz');
@@ -28,10 +29,6 @@ class CreateDevisTable extends Migration
             $table->boolean('impression');
             $table->boolean('PDF_dynamique');
             $table->string('contact');
-
-            $table->foreignId('demandeurs_id')
-                ->references('id')->on('demandeurs')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

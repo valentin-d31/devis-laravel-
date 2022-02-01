@@ -177,7 +177,7 @@
                     @enderror
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Editer le Devis{$devi->id}</button>
+                <button type="submit" class="btn btn-primary">Editer le Devis {{$devi->titre}}</button>
             </form>
         </ul>
     </div>

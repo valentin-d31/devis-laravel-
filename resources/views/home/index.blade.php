@@ -31,41 +31,42 @@
             </form>
             <thead>
             <tr>
-                <th scope="col">Objet Devis</th>
-                <th scope="col">Entité de Facturation</th>
-                <th scope="col">Prestataire</th>
-                <th scope="col">Référence Allianz</th>
-                <th scope="col">Référence Prestataire</th>
-                <th scope="col">Date Ouverture</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Date d'ouverture projet</th>
+                <th scope="col">Reference Allianz</th>
+                <th scope="col">Nom Commande(_id)</th>
+                <th scope="col">Référence Commande</th>
+                <th scope="col"> Produit(s)(_id)</th>
+                <th scope="col">Prix total (h.t.)(P_id)</th>
                 <th scope="col">Date de Fermeture</th>
-                <th scope="col">Prix total (h.t.)</th>
-                <th scope="col">Validation</th>
+                <th scope="col">Contact</th>
             </tr>
             </thead>
-            <div id="produits">
-                @foreach($produits as $produit)
+            <div id="devis">
+                @foreach($devis as $devi)
                     <tr>
-                        <td>{{$produit->reference}}</td>
-                        <td>{{$produit->name}}</td>
-                        <td>{{$produit->tarifUnitaire_type}}</td>
-                        <td>{{$produit->tarifUnitaire_pht}}</td>
-                        <td>{{$produit->prestationDevisee_qté}}</td>
-                        <td>{{$produit->prestationDevisee_mht}}</td>
-                        <td>{{$produit->prestationCompl_qté}}</td>
-                        <td>{{$produit->prestationCompl_mht}}</td>
-                        <td>{{$produit->total_ht}}</td>
+                        <td>{{$devi->titre}}</td>
+                        <td>{{$devi->date_ouverture}}</td>
+                        <td>{{$devi->ref_allianz}}</td>
+                        <td>->nom</td>
+                        <td>{{$devi->ref_commande}}</td>
+                        <td>nbr produits</td>
+                        <td>->total_ht</td>
+                        <td>Ajout fermeture dossier ?</td>
+                        <td>{{$devi->contact}}</td>
                         <td>
                             <form action="#" method="post">
-                                {{-- Voir  --}}
-                                <a href="#" class="btn btn-success"><i
-                                        class="fas fa-eye"></i></a>
+                                {{-- Voir --}}
+                                <a href="{{ route('devis.show', $devi ) }}" class="btn btn-success"><i
+                                        class="fas fa-eye">voir détails Devis</i></a>
 
-                                {{-- Editer  --}}
+                                {{-- Editer --}}
                                 <a href="{{ route('produits.create') }}" class="btn btn-info"><i
-                                        class="far fa-edit"></i></a>
+                                        class="far fa-edit">Ajouter Produit(s)</i></a>
 
-                                {{-- Supprimer  --}}
-                                <button type="submit" class="btn btn-danger"><i class="fa fa-download"></i></button>
+                                {{-- Download --}}
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fa fa-download">Télécharger Devis</i></button>
                             </form>
 
                         </td>
@@ -98,13 +99,13 @@
                             })
                         }).then(response => {
                             response.json().then(data => {
-                                const produits = document.getElementById('produits');
-                                produits.innerHTML = '';
+                                const devis = document.getElementById('devis');
+                                devis.innerHTML = '';
 
                                 {{--console.log(data)--}}
                                 {{--object.entries pour transforrmer les datas en [] de proprietes--}}
                                 Object.entries(data)[0][1].forEach(element => {
-                                    produits.innerHTML += `<h1>${element.name}</h1>
+                                    devis.innerHTML += `<h1>${element.name}</h1>
                                     <p>${element.reference}</p>
                                     `
                                 });

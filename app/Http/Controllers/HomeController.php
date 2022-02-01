@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produit;
+use App\Models\Devis;
+
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $produits = produit::all();
-        return view('home.index', compact('produits'));
+        $devis = Devis::all();
+        return view('home.index', compact('devis'));
     }
     //: JsonResponse
 
@@ -19,10 +20,10 @@ class HomeController extends Controller
     {
         $q = $request->input('q');
 
-        $produits = produit::where('name', 'like', '%' .$q . '%')->get();
+        $devis = Devis::where('titre', 'like', '%' .$q . '%')->get();
 
         return response()->json([
-            'produits' => $produits,
+            'devis' => $devis,
         ]);
     }
 

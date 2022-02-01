@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Devis;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class DevisController extends Controller
@@ -50,6 +51,18 @@ class DevisController extends Controller
         return redirect()
             ->route('admin.index', compact('devis'))
             ->with('success', 'Le devis à bien été crée avec success');
+    }
+
+    public function show($devi)
+    {
+        $devi = Devis::where('id', $devi)->first();
+        //$produit = Produit::all();
+
+        if (!$devi) {
+            return abort(404);
+        }
+
+        return view('devis.show', compact('devi'));
     }
 
     public function edit($devi)

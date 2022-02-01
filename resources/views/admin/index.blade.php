@@ -24,7 +24,6 @@
             <a href="{{route('devis.create')}}" class="btn btn-primary me-md-2" type="button">Créer un devis</a>
         </div>
         <hr>
-
         <table class="table text-center">
             <thead>
             <tr>
@@ -60,7 +59,6 @@
                         {{-- Supprimer  --}}
                         <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </form>
-
                 </td>
             </tr>
             @endforeach
@@ -70,7 +68,6 @@
 
         {{-- Afficher les produits --}}
         <h1 class="my-5">Afficher les produits 📝</h1>
-
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="{{route('produits.create')}}" class="btn btn-primary me-md-2" type="button">Créer un produit</a>
         </div>
@@ -102,20 +99,17 @@
                     <td>{{$produit->prestationCompl_mht}}</td>
                     <td>{{$produit->total_ht}}</td>
                     <td>
-                        <form action=" {{ route('produits.destroy', $produit) }}" method="POST">
+                        <form action="{{route ('produits.destroy', $produit)}}" method="POST" class="btn-group">
                             @csrf
                             @method('DELETE')
-
                             {{-- Editer  --}}
                             <a href="{{ route('produits.edit', $produit) }}" class="btn btn-info"><i
                                     class="far fa-edit"></i></a>
                             {{-- Supprimer  --}}
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </form>
-
                     </td>
                 </tr>
-                <p class="text-center"></p>
             @endforeach
             </tbody>
         </table>

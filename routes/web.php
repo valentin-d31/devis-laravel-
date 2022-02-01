@@ -31,6 +31,7 @@ Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->n
 /*[Admin] Devis Route*/
 Route::get('/devis/create', [\App\Http\Controllers\DevisController::class, 'create'])->name('devis.create');
 Route::post('/devis', [\App\Http\Controllers\DevisController::class, 'store'])->name('devis.store');
+Route::get('/devis/{devi}', [DevisController::class, 'show'])->name('devis.show');
 Route::get('/devis/{devi}/edit', [DevisController::class, 'edit'])->name('devis.edit');
 Route::patch('devis/{devi}', [\App\Http\Controllers\DevisController::class, 'update'])->name('devis.update');
 Route::delete('devis/{devi}', [\App\Http\Controllers\DevisController::class, 'destroy'])->name('devis.destroy');

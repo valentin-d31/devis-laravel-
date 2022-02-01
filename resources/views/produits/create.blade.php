@@ -1,12 +1,18 @@
 @extends('layout.app')
 @section('titre')
-    Ajouter un Service au Devis
+    Ajouter un Produit au Devis
 @endsection
 
 @section('content')
 
     <div class="container">
             <ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <h2>Ajouter un Produit 📝</h2>
+                        <hr>
+                    </li>
+                </ul>
                 <form action="{{route('produits.store')}}" method="POST" >
                     @csrf
 
@@ -114,6 +120,9 @@
                                 {{ $errors->first('total_ht') }}
                             </div>
                             @enderror
+                        </div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Ajouter le produit au devis (idDevis)</button>
                 </form>
             </ul>

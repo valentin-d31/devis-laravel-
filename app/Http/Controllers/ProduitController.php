@@ -27,7 +27,7 @@ class ProduitController extends Controller
             'total_ht' => 'required',
         ]);
 
-       $produit= Produit::create([
+       $produit = Produit::create([
                 'reference' => $data['reference'],
                 'name' => $data['name'],
                 'tarifUnitaire_type' => $data['tarifUnitaire_type'],
@@ -41,7 +41,7 @@ class ProduitController extends Controller
         ]);
 
         return redirect()
-        ->route('produits.index', compact('produit'))
+        ->route('admin.index', compact('produit'))
             ->with('success', ' Le produit à bien été ajouté avec success au devis (idDevis)');
     }
 

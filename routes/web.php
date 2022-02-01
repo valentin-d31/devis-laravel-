@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DevisController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->n
 
 /*[Admin] Devis Route*/
 Route::get('/devis/create', [\App\Http\Controllers\DevisController::class, 'create'])->name('devis.create');
+Route::post('/devis', [\App\Http\Controllers\DevisController::class, 'store'])->name('devis.store');
+Route::get('/devis/{devis}/edit', [DevisController::class, 'edit'])->name('devis.edit');
 
 
 /*[Admin] Produits Routes*/

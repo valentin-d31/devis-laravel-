@@ -18,7 +18,7 @@
         </div>
 
         {{-- Afficher les Devis --}}
-        <h1 class="my-2">Afficher les devis</h1>
+        <h1 class="my-2">Afficher les devis 📃</h1>
         <tbody>
         <table class="table text-center">
             <form action="{{route('home.search')}}"   class="d-flex mr-3">

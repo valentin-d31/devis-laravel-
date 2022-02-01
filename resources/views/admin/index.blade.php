@@ -12,7 +12,7 @@
         </div>
 
         {{-- Afficher les Devis --}}
-        <h1 class="my-2">Afficher les devis</h1>
+        <h1 class="my-2">Afficher les devis 📃</h1>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="{{route('devis.create')}}" class="btn btn-primary me-md-2" type="button">Créer un devis</a>
         </div>
@@ -21,35 +21,33 @@
         <table class="table text-center">
             <thead>
             <tr>
-                <th scope="col">Cote</th>
-                <th scope="col">devis</th>
-                <th scope="col">blala</th>
-                <th scope="col">Pays</th>
-                <th scope="col">Durée</th>
-                <th scope="col">Création</th>
-                <th scope="col">Image</th>
-                <th scope="col">Action</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Date d'ouverture</th>
+                <th scope="col">Reference Allianz</th>
+                <th scope="col">Reference Commande</th>
+                <th scope="col">Cost Center</th>
+                <th scope="col">Cost Element</th>
+                <th scope="col">Impression</th>
+                <th scope="col">Contact</th>
             </tr>
             </thead>
             <tbody>
-
+            @foreach($devis as $devi)
             <tr>
-                <td>#</td>
-                <td><a href="#">#</a></td>
-                <td>
-
-                </td>
-                </a>
-                <td></td>
-                <td>min</td>
-                <td></td>
-                <td></td>
+                <td>{{$devi->titre}}</td>
+                <td>{{$devi->date_ouverture}}</td>
+                <td>{{$devi->ref_allianz}}</td>
+                <td>{{$devi->ref_commande}}</td>
+                <td>{{$devi->cost_center}}</td>
+                <td>{{$devi->cost_element}}</td>
+                <td>{{$devi->impression}}</td>
+                <td>{{$devi->contact}}</td>
                 <td>
                     <form action="#" method="post">
                         @csrf
 
                         {{-- Editer  --}}
-                        <a href="#" class="btn btn-info"><i
+                        <a href="{{route('devis.edit', $devis)}}" class="btn btn-info"><i
                                 class="far fa-edit"></i></a>
 
                         {{-- Supprimer  --}}
@@ -58,12 +56,13 @@
 
                 </td>
             </tr>
+            @endforeach
             </tbody>
         </table>
         <hr>
 
         {{-- Afficher les produits --}}
-        <h1 class="my-5">Afficher les produits</h1>
+        <h1 class="my-5">Afficher les produits 📝</h1>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <a href="{{route('produits.create')}}" class="btn btn-primary me-md-2" type="button">Créer un produit</a>

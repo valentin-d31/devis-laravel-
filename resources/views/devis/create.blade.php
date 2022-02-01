@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('titre')
-    Ajouter un Service au Devis
+    Ajouter un Service
 @endsection
 
 @section('content')
@@ -9,11 +9,11 @@
         <ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                        <h2>Créer un Devis 📃</h2>
+                    <h2>Créer un Devis 📃</h2>
                     <hr>
                 </li>
             </ul>
-            <form action="#" method="POST" >
+            <form action="{{route ('devis.store')}}" method="POST" >
                 @csrf
 
                 {{-- Titre --}}
@@ -32,7 +32,7 @@
                 {{-- date_ouverture --}}
                 <div class="form-group">
                     <label for="date_ouverture">Date d'ouverture</label>
-                    <input type="text" id="date_ouverture" class="form-control @error('date_ouverture') is-invalid @enderror"
+                    <input type="date" id="date_ouverture" class="form-control @error('date_ouverture') is-invalid @enderror"
                            name="date_ouverture"
                            placeholder="Selectionner une date d'ouverture">
                     @error('date_ouverture')
@@ -88,7 +88,7 @@
                 {{-- date_1er_PDF --}}
                 <div class="form-group">
                     <label for="date_1er_PDF">Date du premier PDF</label>
-                    <input id="date_1er_PDF" class="form-control"
+                    <input type="date" id="date_1er_PDF" class="form-control"
                            name="date_1er_PDF"
                            placeholder="Date du permier pdf">
                     @error('date_1er_PDF')
@@ -101,7 +101,7 @@
                 {{-- cost center --}}
                 <div class="form-group">
                     <label for="cost_center">Cost center</label>
-                    <input id="cost_center" class="form-control @error('cost_center') is-invalid @enderror"
+                    <input type="integer" id="cost_center" class="form-control @error('cost_center') is-invalid @enderror"
                            name="cost_center"
                            placeholder="Veillez rentrer un cost center">
                     @error('cost_center')
@@ -114,7 +114,7 @@
                 {{-- cost element --}}
                 <div class="form-group">
                     <label for="cost_element">Cost element</label>
-                    <input id="cost_element" class="form-control @error('cost_element') is-invalid @enderror"
+                    <input type="integer"  id="cost_element" class="form-control @error('cost_element') is-invalid @enderror"
                            name="cost_element"
                            placeholder="Veillez rentrer un cost element">
                     @error('cost_element')
@@ -127,7 +127,7 @@
                 {{-- repartition_si_2_costs_center--}}
                 <div class="form-group">
                     <label for="repartition_si_2_costs_center">Repartition si 2 costs center</label>
-                    <input id="repartition_si_2_costs_center" class="form-control @error('repartition_si_2_costs_center') is-invalid @enderror"
+                    <input type="boolean" id="repartition_si_2_costs_center" class="form-control @error('repartition_si_2_costs_center') is-invalid @enderror"
                            name="repartition_si_2_costs_center"
                            placeholder="repartition si 2 costs center">
                     @error('repartition_si_2_costs_center')
@@ -140,7 +140,7 @@
                 {{-- impression--}}
                 <div class="form-group">
                     <label for="impression">impression</label>
-                    <input id="impression" class="form-control @error('impression') is-invalid @enderror"
+                    <input type="boolean" id="impression" class="form-control @error('impression') is-invalid @enderror"
                            name="impression"
                            placeholder="impression">
                     @error('impression')
@@ -153,7 +153,7 @@
                 {{-- PDF_dynamique--}}
                 <div class="form-group">
                     <label for="PDF_dynamique">PDF_dynamique</label>
-                    <input id="PDF_dynamique" class="form-control @error('PDF_dynamique') is-invalid @enderror"
+                    <input type="boolean" id="PDF_dynamique" class="form-control @error('PDF_dynamique') is-invalid @enderror"
                            name="PDF_dynamique"
                            placeholder="PDF_dynamique">
                     @error('PDF_dynamique')
@@ -175,8 +175,8 @@
                     </div>
                     @enderror
                 </div>
-
-                <button type="submit" class="btn btn-primary">Ajouter le produit au devis (idDevis)</button>
+             <br>
+                <button type="submit" class="btn btn-primary">Créer un Devis</button>
             </form>
         </ul>
     </div>

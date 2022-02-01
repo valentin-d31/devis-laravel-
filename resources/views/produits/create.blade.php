@@ -123,6 +123,7 @@
                         </div>
                     </div>
 
+
                     <button type="submit" class="btn btn-primary">Ajouter le produit au devis (idDevis)</button>
                 </form>
             </ul>

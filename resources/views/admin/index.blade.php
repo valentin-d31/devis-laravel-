@@ -10,6 +10,13 @@
             <nav class="nav d-flex justify-content-between">
             </nav>
         </div>
+        <hr>
+        @if ( session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+        <hr>
 
         {{-- Afficher les Devis --}}
         <h1 class="my-2">Afficher les devis 📃</h1>
@@ -43,11 +50,11 @@
                 <td>{{$devi->impression}}</td>
                 <td>{{$devi->contact}}</td>
                 <td>
-                    <form action="#" method="post">
+                    <form action="{{route ('devis.destroy', $devi)}}" method="POST">
                         @csrf
-
+                        @method('DELETE')
                         {{-- Editer  --}}
-                        <a href="{{route('devis.edit', $devis)}}" class="btn btn-info"><i
+                        <a href="{{ route('devis.edit', $devi->id) }}" class="btn btn-info"><i
                                 class="far fa-edit"></i></a>
 
                         {{-- Supprimer  --}}
@@ -108,16 +115,10 @@
 
                     </td>
                 </tr>
-
                 <p class="text-center"></p>
             @endforeach
             </tbody>
         </table>
         <hr>
-        @if ( session()->has('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session()->get('success') }}
-            </div>
-        @endif
     </div>
 @endsection

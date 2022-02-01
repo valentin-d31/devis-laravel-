@@ -52,13 +52,68 @@ class DevisController extends Controller
             ->with('success', 'Le devis à bien été crée avec success');
     }
 
-    public function edit(Request $request, $devis)
+    public function edit($devi)
     {
-        $devis = Devis::where('id', $devis)->first();
+        $devi = Devis::where('id', $devi)->first();
 
-        if(!devis) {
+        if(!$devi) {
             return abort(404);
         }
+        return view('devis.edit', compact('devi'));
+    }
+
+    public function update(Request $request, $devi)
+    {
+        $devi = Devis::where('id', $devi)->first();
+
+        if(!$devi) {
+            return abort(404);
+        }
+
+        $data = request()->validate([
+            "titre" => 'required',
+            "date_ouverture" => 'required',
+            "ref_allianz" => 'required',
+            "ref_commande" => 'required',
+            "fait_partie_projet" => 'nullable',
+            "exemple_sur" => 'nullable',
+            "date_1er_PDF" => 'required',
+            "cost_center" => 'required|integer',
+            "cost_element" => 'required|integer',
+            "repartition_si_2_costs_center" => 'required',
+            "impression" => 'required',
+            "PDF_dynamique" => 'required',
+            "contact" => 'required',
+        ]);
+
+        if($devi->update($data)) {
+            return redirect()
+                ->route('admin.index')
+                ->with('success', 'Le devis a bien été modifié');
+        }
+
+        return redirect()
+            ->route('admin.index', ['id' => $devi])
+            ->with('error', "Une erreur est survenue, Le devis n'\a pas été modifié");
+    }
+
+    public function destroy($devi)
+    {
+        $devi = Devis::where('id', $devi)->first();
+
+        if(!$devi) {
+            return abort(404);
+        }
+
+        if($devi->delete()) {
+            return redirect()
+                ->route('admin.index')
+                ->with('success', 'Le devis a bien été supprimé');
+        }
+
+        return redirect()
+            ->route('admin.index', ['id' => $devi])
+            ->with('error', "Une erreur est survenue, Le devis n'\a pas été supprimé",);
 
     }
 }

@@ -7,6 +7,12 @@
 
     <div class="container">
         <ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <h2>Editer le Produit 📝</h2>
+                    <hr>
+                </li>
+            </ul>
             <form action="{{ route('produits.update', $produit->id) }}" method="POST" >
                 @csrf
                 @method('patch')

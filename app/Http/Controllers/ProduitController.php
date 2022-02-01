@@ -27,7 +27,7 @@ class ProduitController extends Controller
             'total_ht' => 'required',
         ]);
 
-       $produit = Produit::create([
+       $produits = Produit::create([
                 'reference' => $data['reference'],
                 'name' => $data['name'],
                 'tarifUnitaire_type' => $data['tarifUnitaire_type'],
@@ -41,7 +41,7 @@ class ProduitController extends Controller
         ]);
 
         return redirect()
-        ->route('admin.index', compact('produit'))
+        ->route('admin.index', compact('produits'))
             ->with('success', ' Le produit à bien été ajouté avec success au devis (idDevis)');
     }
 
@@ -78,12 +78,12 @@ class ProduitController extends Controller
 
        if ($produit->update($data)) {
            return redirect()
-               ->route('produits.index')
+               ->route('admin.index')
                ->with('success', 'Le produit a bien été modifié');
        }
 
        return redirect()
-           ->route('produits.index', ['id' => $produit])
+           ->route('admin.index', ['id' => $produit])
            ->with('error', "une erreur est survenue. Le produit n'\a pas été modifié");
 
     }
@@ -98,12 +98,12 @@ class ProduitController extends Controller
 
         if ($produit->delete()) {
             return redirect()
-                ->route('produits.index')
+                ->route('admin.index')
                 ->with('success', 'Le produit a bien été supprimé');
         }
 
         return redirect()
-            ->route('admn.index', ['id' => $produit])
+            ->route('admin.index', ['id' => $produit])
             ->with('error', "Une erreur est survenur. Le produit n'\a pas été supprimé");
     }
 }

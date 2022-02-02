@@ -71,7 +71,7 @@
                 <li class="list-group-item" >Contact  : &nbsp{{$devi->contact}}</li>
             </ul>
 
-            {{-- Afficher les Produits --}}
+            {{-- Afficher les Produits sous forme de tableau? --}}
             <h1 class="my-2">Produit(s)</h1>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             </div>
